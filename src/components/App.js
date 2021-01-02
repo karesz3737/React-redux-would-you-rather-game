@@ -1,11 +1,9 @@
 import React, { Component, Fragment } from "react";
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import handleAddData from "../actions/shared";
-import { addAuthUser, resetUser } from "../actions/authUser";
+import { resetAuthUser } from "../actions/authUser";
 import Login from "../components/Login";
 import Home from "../components/containers/Home";
-import HomePage from "./HomePage";
 import Loader from "./Loader";
 class App extends Component {
   componentDidMount() {
@@ -14,10 +12,10 @@ class App extends Component {
   }
   componentWillMount() {
     const { dispatch } = this.props;
-    dispatch(resetUser());
+    dispatch(resetAuthUser());
   }
   render() {
-    const { isSignedIn, users, LoadingBar } = this.props;
+    const { isSignedIn, LoadingBar } = this.props;
     if (!LoadingBar.default === undefined || LoadingBar.default === 1) {
       return (
         <div>
@@ -29,10 +27,9 @@ class App extends Component {
     }
   }
 }
-const mapStateToProps = ({ authedUser, users, LoadingBar }) => {
+const mapStateToProps = ({ authedUser, LoadingBar }) => {
   return {
     isSignedIn: authedUser !== null,
-    users,
     LoadingBar,
   };
 };

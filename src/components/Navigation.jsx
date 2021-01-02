@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
+import { resetAuthUser } from "../actions/authUser";
 class Navigation extends Component {
+  logOut = () => {
+    const { dispatch } = this.props;
+    dispatch(resetAuthUser());
+  };
   render() {
     const { users, current, LoadingBar } = this.props;
 
@@ -26,19 +31,18 @@ class Navigation extends Component {
             <div className="right menu">
               <div className="name">{current.name}</div>
               <div className="ui image">
-                <img
-                  src={process.env.PUBLIC_URL + current.avatarURL}
-                  className="ui mini spaced image"
-                  style={{ marginBottom: "-15px" }}
-                />
+                <img src={current.avatarURL} className="ui mini spaced image" />
               </div>
-              <button
-                className="ui right labeled icon button"
-                style={{ marginLeft: "10px" }}
-              >
-                <i className="right arrow icon"></i>
-                Logout
-              </button>
+              <Link to="/">
+                <button
+                  className="ui right labeled icon button"
+                  style={{ marginLeft: "10px" }}
+                  onClick={this.logOut}
+                >
+                  <i className="right arrow icon"></i>
+                  Logout
+                </button>
+              </Link>
             </div>
           </div>
         )}
@@ -51,7 +55,7 @@ const mapStateToProps = ({ users, authedUser, LoadingBar }) => {
   return {
     users,
     current: users[authedUser],
-    LoadingBar: users !== null,
+    LoadingBar: users === null,
   };
 };
-export default connect(mapStateToProps)(Navigation);
+export default withRouter(connect(mapStateToProps)(Navigation));

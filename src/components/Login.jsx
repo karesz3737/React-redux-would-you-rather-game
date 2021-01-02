@@ -20,7 +20,7 @@ class Login extends Component {
     const { users } = this.props;
 
     return (
-      <div className="ui grey segment">
+      <div className="ui segment">
         <div>
           <img
             className="ui centered medium image"
@@ -28,10 +28,9 @@ class Login extends Component {
             alt="Logo"
           />
         </div>
-        <form className="ui form" onSubmit={this.FormSubmit}>
+        <form className="ui form container" onSubmit={this.FormSubmit}>
           <div className="field">
             <label
-              className="centered"
               style={{
                 textAlign: "center",
                 fontFamily: "Fantasy",
@@ -42,7 +41,7 @@ class Login extends Component {
               Sign In!
             </label>
             <select className="ui menu" onChange={this.onChange}>
-              <option value="choose" className="ui item" defaultChecked>
+              <option value="choose" defaultChecked>
                 Choose one...
               </option>
               {Object.values(users).map((user) => (

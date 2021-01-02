@@ -11,7 +11,7 @@ import middleware from "./middleware";
 import "./index.css";
 
 const persistConfig = {
-  key: "authedUser",
+  key: "root",
   storage: storage,
   whitelist: ["authedUser", "users", "questions"],
 };

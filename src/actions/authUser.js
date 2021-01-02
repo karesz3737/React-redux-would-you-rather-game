@@ -14,9 +14,9 @@ export const resetAuthUser = () => {
   };
 };
 
-export const resetUser = () => {
-  return function (dispatch) {
-    dispatch(resetAuthUser);
-    return window.localStorage.clear();
-  };
-};
+// export const resetUser = () => {
+//   return function (dispatch) {
+//     dispatch(resetAuthUser);
+//     return window.localStorage.setItem("authedUser", null);
+//   };
+// };

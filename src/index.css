@@ -14,11 +14,26 @@ a {
     align-items: center;
 }
 
-/* .mycontainer {
-    max-width: 1100px !important;
+.error {
     display: flex;
-    align-items: center;
-    padding-top: 200px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+
+}
 
 
-} */
+.error p {
+    color: red;
+}
+
+.imgcontainer {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.checkbox:nth-child(1) {
+    display: flex;
+    align-items: flex-start;
+}

@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect, withRouter } from "react-router-dom";
 import { handleQuestions } from "../actions/questions";
+import Error from "./Error";
 class NewPoll extends Component {
   state = {
     questionOne: "",
     questionTwo: "",
+    errorMsg: "",
   };
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -17,12 +19,22 @@ class NewPoll extends Component {
     const { authedUser, dispatch } = this.props;
     const { questionOne, questionTwo } = this.state;
     const { name, value } = event.target;
+    if (questionOne.length === 0 || questionTwo.length === 0) {
+      this.setState({ errorMsg: "Both fields must be completed!" });
+      return;
+    } else if (questionOne[0] === questionTwo[0]) {
+      this.setState({ errorMsg: "Questions cannot be same!!" });
+      return;
+    } else if (questionOne[0].length <= 8 || questionTwo[0].length <= 8) {
+      this.setState({ errorMsg: "Length min 8 characters" });
+      return;
+    }
     dispatch(handleQuestions(questionOne, questionTwo, authedUser));
     return this.props.history.push("/");
   };
   render() {
     const { authedUser } = this.props;
-    const { setDisabled } = this.state;
+    const { errorMsg } = this.state;
 
     if (!authedUser) {
       return <Redirect to="/page404" />;
@@ -36,7 +48,7 @@ class NewPoll extends Component {
             className="ui fluid centered small image"
           />
         </div>
-        <div className="ui form" style={{ marginTop: "200px" }}>
+        <div className="ui form container" style={{ marginTop: "200px" }}>
           <form onSubmit={this.handleSubmit}>
             <div className="two fields ">
               <div className="field">
@@ -62,8 +74,11 @@ class NewPoll extends Component {
                 />
               </div>
             </div>
-            <button className="ui fluid button">Submit</button>
+            <button className="ui fluid button" type="submit">
+              Submit
+            </button>
           </form>
+          <div className="error">{errorMsg && <Error error={errorMsg} />}</div>
         </div>
       </div>
     );

@@ -4,7 +4,6 @@ import handleAddData from "../actions/shared";
 import { resetAuthUser } from "../actions/authUser";
 import Login from "../components/Login";
 import Home from "../components/containers/Home";
-import Loader from "./Loader";
 class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
@@ -19,7 +18,7 @@ class App extends Component {
     if (!LoadingBar.default === undefined || LoadingBar.default === 1) {
       return (
         <div>
-          <Loader />
+          <p>Loading ....</p>
         </div>
       );
     } else {

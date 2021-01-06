@@ -1,9 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import HomePage from "../HomePage";
 import Navgation from "../Navigation";
-import Login from "../Login";
 import Page404 from "../Page404";
 import Leaderboard from "../Leaderboard";
 import NewPoll from "../newPoll";

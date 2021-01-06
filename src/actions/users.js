@@ -16,10 +16,11 @@ export const questionToUser = ({ id, author }) => {
   };
 };
 
-export const addQuestionToUser = ({ qid, option }) => {
+export const addQuestionToUser = ({ authedUser, qid, answer }) => {
   return {
     type: ADD_QUESTION_USER,
+    authedUser,
     qid,
-    option,
+    answer,
   };
 };

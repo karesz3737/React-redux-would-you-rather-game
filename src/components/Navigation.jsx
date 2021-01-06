@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, withRouter, Redirect } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { resetAuthUser } from "../actions/authUser";
 class Navigation extends Component {
   logOut = () => {
@@ -32,7 +32,11 @@ class Navigation extends Component {
             <div className="right menu">
               <div className="name">{current.name}</div>
               <div className="ui image">
-                <img src={current.avatarURL} className="ui mini spaced image" />
+                <img
+                  src={current.avatarURL}
+                  className="ui mini spaced image"
+                  alt={current.name}
+                />
               </div>
               <Link to="/">
                 <button

@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Unanswered from "./Unanswered";
 import Answered from "./Answered";
 class HomeQuestions extends Component {
@@ -29,21 +29,6 @@ class HomeQuestions extends Component {
   }
 }
 
-{
-  /* <div className="ui bottom attached active tab segment">
- {unansweredQuestionIds.map((el) => (
-            <Unanswered id={el} key={el} />
-          ))}
-</div>
-<div
-className="ui bottom attached active tab segment"
-data-tab="second"
->
-{answeredQuestionIds.map((el) => (
-  <Answered id={el} key={el} />
-))}
-</div> */
-}
 const mapStateToProps = ({ questions, authedUser }) => {
   return {
     answeredQuestionIds: Object.keys(questions)

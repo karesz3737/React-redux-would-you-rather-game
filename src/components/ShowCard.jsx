@@ -5,9 +5,7 @@ class ShowCard extends Component {
   render() {
     const { match, users, questions, authedUser } = this.props;
     const id = match.params.id;
-    const { optionOne, optionTwo, author } = questions;
     const first = questions[id].optionOne.votes.includes(authedUser);
-    const second = questions[id].optionTwo.votes.includes(authedUser);
 
     const progresOne = questions[id].optionOne.votes.length;
     const progresTwo = questions[id].optionTwo.votes.length;
@@ -21,7 +19,7 @@ class ShowCard extends Component {
     return (
       <div className="ui centered card">
         <div className="ui image">
-          <img src={image} />
+          <img src={image} alt={users[authedUser]} />
         </div>
         <div className="content">
           <span className="header">Your Answer Was :</span>

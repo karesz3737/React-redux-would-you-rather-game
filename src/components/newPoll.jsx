@@ -18,8 +18,7 @@ class NewPoll extends Component {
     event.preventDefault();
     const { authedUser, dispatch } = this.props;
     const { questionOne, questionTwo } = this.state;
-    const { name, value } = event.target;
-    
+
     if (questionOne.length === 0 || questionTwo.length === 0) {
       this.setState({ errorMsg: "Both fields must be completed!" });
       return;
@@ -47,6 +46,7 @@ class NewPoll extends Component {
           <img
             src={process.env.PUBLIC_URL + "/images/38223.svg"}
             className="ui fluid centered small image"
+            alt={"Logo"}
           />
         </div>
         <div className="ui form container" style={{ marginTop: "200px" }}>

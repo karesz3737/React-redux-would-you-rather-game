@@ -1,5 +1,7 @@
-import sevePoll, { savePoll } from "../api";
+import { savePoll } from "../api";
 import { questionToUser } from "../actions/users";
+import { saveQuestionAnswer } from "../api";
+import { addQuestionToUser } from "../actions/users";
 export const ADD_QUESTIONS = "ADD_QUESTIONS";
 export const HANDLE_ADD_QUESTIONS = "HANDLE_ADD_QUESTIONS";
 export const ADD_QUESTION_TO_QUESTION = "ADD_QUESTION_TO_QUESTION";
@@ -18,11 +20,11 @@ export const handleAddQuestions = (Questions) => {
   };
 };
 
-export const addQuestionToQuestion = ({ qid, option, authedUser }) => {
+export const addQuestionToQuestion = ({ authedUser, qid, answer }) => {
   return {
     type: ADD_QUESTION_TO_QUESTION,
     qid,
-    option,
+    answer,
     authedUser,
   };
 };
@@ -36,6 +38,16 @@ export const handleQuestions = (questionOne, questionTwo, authedUser) => {
     }).then((Questions) => {
       dispatch(handleAddQuestions(Questions));
       dispatch(questionToUser(Questions));
+    });
+  };
+};
+
+export const handleQuestionToQuestion = (qid, answer) => {
+  return function (dispatch, getState) {
+    const { authedUser } = getState();
+    return saveQuestionAnswer({ qid, answer, authedUser }).then(() => {
+      dispatch(addQuestionToQuestion({ authedUser, qid, answer }));
+      dispatch(addQuestionToUser({ authedUser, qid, answer }));
     });
   };
 };

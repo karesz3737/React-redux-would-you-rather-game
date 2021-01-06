@@ -4,17 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 
 class Answered extends Component {
   render() {
-    const {
-      image,
-      author,
-      first,
-      second,
-      id,
-      textOptionOne,
-      textOptionTwo,
-    } = this.props;
-
-    // const { author, optionOne, optionTwo } = question;
+    const { image, author, id, textOptionOne, textOptionTwo } = this.props;
 
     return (
       <div>
@@ -24,7 +14,7 @@ class Answered extends Component {
           </div>
 
           <div className="image">
-            <img src={image} style={{ height: "180px" }} />
+            <img src={image} style={{ height: "180px" }} alt={author} />
           </div>
           <div className="content">
             <div className="textItem">

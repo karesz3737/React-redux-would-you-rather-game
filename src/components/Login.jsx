@@ -64,11 +64,5 @@ const mapStateToProps = ({ users }) => {
     users,
   };
 };
-{
-  /* <img
-src={process.env.PUBLIC_URL + el.avatarURL}
-className="ui avatar image bordered"
-alt={el.id}
-/> */
-}
+
 export default connect(mapStateToProps)(Login);

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { persistStore, persistReducer } from "redux-persist";
-import { BrowserRouter } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
 import storage from "redux-persist/lib/storage";
 import { Provider } from "react-redux";
 import App from "./components/App";
@@ -13,7 +13,7 @@ import "./index.css";
 const persistConfig = {
   key: "root",
   storage: storage,
-  whitelist: ["authedUser", "users", "questions"],
+  whitelist: ["users", "questions"],
 };
 const pReducer = persistReducer(persistConfig, reducer);
 const store = createStore(pReducer, middleware);
@@ -21,7 +21,9 @@ const persistor = persistStore(store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <PersistGate loading="null" persistor={persistor}>
+      <App />
+    </PersistGate>
   </Provider>,
   document.getElementById("root")
 );

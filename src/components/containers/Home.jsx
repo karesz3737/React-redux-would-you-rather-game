@@ -8,6 +8,7 @@ import Page404 from "../Page404";
 import Leaderboard from "../Leaderboard";
 import NewPoll from "../newPoll";
 import ShowCard from "../ShowCard";
+import HomeQuestions from "../HomeQuestions";
 
 class Home extends Component {
   render() {
@@ -16,10 +17,8 @@ class Home extends Component {
         <BrowserRouter>
           <Navgation />
           <Switch>
-            <Route path="/" exact>
-              <HomePage />
-            </Route>
             <Route path="/404" exact component={Page404} />
+            <Route path="/" exact component={HomeQuestions} />
             <Route path="/leaders" exact component={Leaderboard} />
             <Route path="/newpoll" exact component={NewPoll} />
             <Route path="/:id" exact component={ShowCard} />

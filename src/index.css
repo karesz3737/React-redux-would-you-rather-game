@@ -9,6 +9,11 @@ a {
     font-family: fantasy, Arial, Helvetica, sans-serif !important;
 }
 
+.content h4 {
+    text-transform: capitalize;
+}
+
+
 .name {
     display: flex;
     align-items: center;
@@ -16,10 +21,17 @@ a {
 
 .error {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     margin-top: 20px;
     text-align: center;
+
+}
+
+.gridI {
+    display: flex;
+    justify-content: space-evenly;
+
 
 }
 
@@ -36,4 +48,30 @@ a {
 .checkbox:nth-child(1) {
     display: flex;
     align-items: flex-start;
+}
+
+.textItem {
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.textItem p {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.wr {
+    text-align: center;
+    display: block;
+    position: absolute;
+    top: -20px;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.cl {
+    color: #4183C4
 }

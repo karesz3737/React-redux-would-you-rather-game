@@ -2,12 +2,28 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class Unanswered extends Component {
+  state = {
+    answer: "",
+  };
+  addState = (event) => {
+    const { question } = this.props;
+    const value = event.target.value;
+    this.setState({ answer: value });
+    console.log(this.state.answer);
+  };
+
   render() {
-    const { textOptionOne, textOptionTwo, image, author } = this.props;
+    const {
+      textOptionOne,
+      textOptionTwo,
+      image,
+      author,
+      authedUser,
+    } = this.props;
 
     return (
-      <div className="ui container">
-        <div className="ui card">
+      <div>
+        <div className="ui card" style={{ marginBottom: "10px" }}>
           <div className="content">
             <div className="right floated meta">Would You rather?</div>
             <div className="left floated meta">{author} asks:</div>
@@ -17,16 +33,28 @@ class Unanswered extends Component {
           </div>
           <div className="content">
             <form className="ui form">
-              <div className="ui checkbox">
-                <input type="checkbox" />
-                <label>{textOptionOne}</label>
+              <div className="radio">
+                <input
+                  type="radio"
+                  name="name"
+                  value={"OptionOne"}
+                  onChange={this.addState}
+                />
+                <label style={{ padding: "5px" }}>{textOptionOne}</label>
               </div>
-              <div className="ui checkbox">
-                <input type="checkbox" />
-                <label>{textOptionTwo}</label>
+              <div className="radio">
+                <input
+                  type="radio"
+                  name="name"
+                  value={"OptionTwo"}
+                  onChange={this.addState}
+                />
+                <label style={{ padding: "5px" }}>{textOptionTwo}</label>
               </div>
 
-              <button className="ui fluid button">Send</button>
+              <button className="ui fluid button">
+                <p className="cl">Send</p>
+              </button>
             </form>
           </div>
         </div>
@@ -34,9 +62,8 @@ class Unanswered extends Component {
     );
   }
 }
-const mapStateToProps = ({ questions, users, authedUser }, { id }) => {
+const mapStateToProps = ({ users, questions, authedUser }, { id }) => {
   const question = questions[id];
-
   const author = question.author;
   const textOptionOne = Object.values(question.optionOne.text).join("");
   const textOptionTwo = Object.values(question.optionTwo.text).join("");
@@ -48,7 +75,6 @@ const mapStateToProps = ({ questions, users, authedUser }, { id }) => {
     textOptionTwo,
     author,
     image,
-    authedUser,
   };
 };
 export default connect(mapStateToProps)(Unanswered);

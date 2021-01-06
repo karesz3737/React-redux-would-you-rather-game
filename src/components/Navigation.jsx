@@ -20,13 +20,14 @@ class Navigation extends Component {
             style={{ marginTop: "10px" }}
           >
             <Link className="ui mini button " to="/">
-              Home
+              <p className="cl">Home</p>
             </Link>
-            <Link className="ui button mini" to="/newpoll">
-              New Poll
+
+            <Link className="ui button mini cl" to="/newpoll">
+              <p className="cl">New Poll</p>
             </Link>
-            <Link className="mini ui button" to="/leaders">
-              Leader Bord
+            <Link className="mini ui button cl" to="/leaders">
+              <p className="cl">Leader Bord</p>
             </Link>
             <div className="right menu">
               <div className="name">{current.name}</div>
@@ -40,7 +41,7 @@ class Navigation extends Component {
                   onClick={this.logOut}
                 >
                   <i className="right arrow icon"></i>
-                  Logout
+                  <p className="cl"> Logout</p>
                 </button>
               </Link>
             </div>

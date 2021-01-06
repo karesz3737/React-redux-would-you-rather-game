@@ -50,7 +50,9 @@ class Login extends Component {
                 </option>
               ))}
             </select>
-            <button className="fluid ui button">Click</button>
+            <button className="fluid ui button">
+              <p className="cl">Click</p>
+            </button>
           </div>
         </form>
       </div>

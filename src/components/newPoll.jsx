@@ -19,6 +19,7 @@ class NewPoll extends Component {
     const { authedUser, dispatch } = this.props;
     const { questionOne, questionTwo } = this.state;
     const { name, value } = event.target;
+    
     if (questionOne.length === 0 || questionTwo.length === 0) {
       this.setState({ errorMsg: "Both fields must be completed!" });
       return;

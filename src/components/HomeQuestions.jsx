@@ -1,23 +1,27 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import Unanswered from "./Unanswered";
 import Answered from "./Answered";
-
 class HomeQuestions extends Component {
   render() {
-    const { unanswered, answered } = this.props;
-
-    // const vv = unanswered.filter((item) => item !== null);
+    const { answeredQuestionIds, unansweredQuestionIds } = this.props;
 
     return (
-      <div>
-        <div className="ui two column very relaxed grid ">
+      <div className=" ui segment container">
+        <div className="gridI">
           <div className="column">
-            {unanswered !== null && <Unanswered id={unanswered} />}
+            <div className="ui header centered">Unaswered</div>
+            {unansweredQuestionIds.map((el) => (
+              <Unanswered id={el} key={el} />
+            ))}
           </div>
-          <div className="column">
-            {answered !== null && <Answered id={answered} />}
+          <div className=" column">
+            <div className="ui header centered">Answered</div>
+
+            {answeredQuestionIds.map((el) => (
+              <Answered id={el} key={el} />
+            ))}
           </div>
         </div>
       </div>
@@ -25,15 +29,37 @@ class HomeQuestions extends Component {
   }
 }
 
-const mapStateToProps = ({ questions, authedUser }, { id }) => {
-  const question = questions[id];
-
-  const vote1 = Object.values(question.optionOne.votes).includes(authedUser);
-  const vote2 = Object.values(question.optionTwo.votes).includes(authedUser);
-
+{
+  /* <div className="ui bottom attached active tab segment">
+ {unansweredQuestionIds.map((el) => (
+            <Unanswered id={el} key={el} />
+          ))}
+</div>
+<div
+className="ui bottom attached active tab segment"
+data-tab="second"
+>
+{answeredQuestionIds.map((el) => (
+  <Answered id={el} key={el} />
+))}
+</div> */
+}
+const mapStateToProps = ({ questions, authedUser }) => {
   return {
-    unanswered: !vote1 && !vote2 ? id : null,
-    answered: vote1 || vote2 ? id : null,
+    answeredQuestionIds: Object.keys(questions)
+      .filter(
+        (question) =>
+          questions[question].optionOne.votes.indexOf(authedUser) > -1 ||
+          questions[question].optionTwo.votes.indexOf(authedUser) > -1
+      )
+      .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
+    unansweredQuestionIds: Object.keys(questions)
+      .filter(
+        (question) =>
+          questions[question].optionOne.votes.indexOf(authedUser) === -1 &&
+          questions[question].optionTwo.votes.indexOf(authedUser) === -1
+      )
+      .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
   };
 };
 export default withRouter(connect(mapStateToProps)(HomeQuestions));

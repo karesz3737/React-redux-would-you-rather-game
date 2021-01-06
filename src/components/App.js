@@ -11,6 +11,7 @@ class App extends Component {
   }
   componentWillMount() {
     const { dispatch } = this.props;
+    window.localStorage.clear();
     dispatch(resetAuthUser());
   }
   render() {

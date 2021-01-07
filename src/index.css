@@ -36,8 +36,10 @@ a {
 }
 
 
-.error p {
+.error {
     color: red;
+    display: flex;
+    justify-content: center;
 }
 
 .imgcontainer {

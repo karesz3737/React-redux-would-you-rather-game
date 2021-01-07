@@ -7,11 +7,11 @@ class NewPoll extends Component {
   state = {
     questionOne: "",
     questionTwo: "",
-    errorMsg: "",
+    errorMsg: null,
   };
   handleChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: [value] });
+    this.setState({ ...this.state, [name]: [value] });
   };
 
   handleSubmit = (event) => {
@@ -20,16 +20,29 @@ class NewPoll extends Component {
     const { questionOne, questionTwo } = this.state;
 
     if (questionOne.length === 0 || questionTwo.length === 0) {
-      this.setState({ errorMsg: "Both fields must be completed!" });
+      this.setState({
+        errorMsg: "Both fields must be completed!",
+        questionOne: "",
+        questionTwo: "",
+      });
       return;
     } else if (questionOne[0] === questionTwo[0]) {
-      this.setState({ errorMsg: "Questions cannot be same!!" });
+      this.setState({
+        errorMsg: "Questions cannot be same!!",
+        questionOne: "",
+        questionTwo: "",
+      });
       return;
     } else if (questionOne[0].length <= 8 || questionTwo[0].length <= 8) {
-      this.setState({ errorMsg: "Length min 8 characters" });
+      this.setState({
+        errorMsg: "Length min 8 characters",
+        questionOne: "",
+        questionTwo: "",
+      });
       return;
     }
     dispatch(handleQuestions(questionOne, questionTwo, authedUser));
+
     return this.props.history.push("/");
   };
   render() {
@@ -46,7 +59,7 @@ class NewPoll extends Component {
           <img
             src={process.env.PUBLIC_URL + "/images/38223.svg"}
             className="ui fluid centered small image"
-            alt={"Logo"}
+            alt="Logo"
           />
         </div>
         <div className="ui form container" style={{ marginTop: "200px" }}>
@@ -58,7 +71,7 @@ class NewPoll extends Component {
                   name="questionOne"
                   type="text"
                   placeholder="Your first question"
-                  value={this.state.questionOne}
+                  value={this.state.questionOne || ""}
                   onChange={this.handleChange}
                 />
               </div>
@@ -69,8 +82,7 @@ class NewPoll extends Component {
                   name="questionTwo"
                   type="text"
                   placeholder="Your Second Question"
-                  on
-                  value={this.state.questionTwo}
+                  value={this.state.questionTwo || ""}
                   onChange={this.handleChange}
                 />
               </div>

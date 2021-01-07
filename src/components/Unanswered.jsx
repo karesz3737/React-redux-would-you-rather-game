@@ -14,6 +14,7 @@ class Unanswered extends Component {
     const { dispatch, question } = this.props;
     const { answer } = this.state;
     const qid = question.id;
+
     dispatch(handleQuestionToQuestion(qid, answer));
   };
   render() {
@@ -50,7 +51,11 @@ class Unanswered extends Component {
                 <label style={{ padding: "5px" }}>{textOptionTwo}</label>
               </div>
 
-              <button className="ui fluid button" type="submit">
+              <button
+                className="ui fluid button"
+                type="submit"
+                disabled={!this.state.answer && "disabled"}
+              >
                 <p className="cl">Send</p>
               </button>
             </form>

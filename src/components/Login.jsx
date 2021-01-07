@@ -14,6 +14,9 @@ class Login extends Component {
     const { dispatch } = this.props;
     const { userId } = this.state;
     event.preventDefault();
+    if (!userId) {
+      return;
+    }
     dispatch(addAuthUser(userId));
   };
   render() {

@@ -1,5 +1,6 @@
 {
   "name": "udacity-project-would-you-rather",
+  "homepages": "https://karesz3737.github.io/Udacity-react-nano-would-you-rather",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

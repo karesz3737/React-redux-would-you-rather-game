@@ -50,11 +50,24 @@ class Answered extends Component {
             <span className="header">Your Answer Was :</span>
             <div style={{ marginTop: "10px" }}>
               {first ? (
-                <h4>{question.optionOne.text}</h4>
+                <h4>
+                  {question.optionOne.text}
+                  <i
+                    className="ui icon check circle"
+                    style={{ float: "right" }}
+                  ></i>
+                </h4>
               ) : (
-                <h4>{question.optionTwo.text}</h4>
+                <h4>
+                  {question.optionTwo.text}
+                  <i
+                    className="ui icon check circle"
+                    style={{ float: "right" }}
+                  ></i>
+                </h4>
               )}
             </div>
+
             <div className="ui active progress">
               <div className="bar" style={{ width: `${pecentage}%` }}>
                 <div className="progress">{pecentage}%</div>
@@ -62,7 +75,7 @@ class Answered extends Component {
               <div className="label">The Current Progress</div>
             </div>
             <div className="item" style={{ textAlign: "center" }}>
-              <h4>{totalvotes} out of Total Questions</h4>
+              <h4>{totalvotes} out of Total Answered Questions</h4>
             </div>
           </div>
         </div>

@@ -11,6 +11,9 @@ class HomeQuestions extends Component {
 
     return (
       <div>
+        <h1 className="ui centered header" style={{ paddingTop: "20px" }}>
+          Would You Rather?
+        </h1>
         <Tabs className="bb">
           <TabList
             className="ui top attached tabular menu item"

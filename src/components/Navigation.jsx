@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { resetAuthUser } from "../actions/authUser";
 class Navigation extends Component {
   logOut = () => {
@@ -23,10 +23,10 @@ class Navigation extends Component {
               <p className="cl">Home</p>
             </Link>
 
-            <Link className="ui button mini cl" to="/newpoll">
+            <Link className="ui button mini cl" to="/add">
               <p className="cl">New Poll</p>
             </Link>
-            <Link className="mini ui button cl" to="/leaders">
+            <Link className="mini ui button cl" to="/leaderbord">
               <p className="cl">Leader Bord</p>
             </Link>
             <div className="right menu">
@@ -63,4 +63,4 @@ const mapStateToProps = ({ users, authedUser, LoadingBar }) => {
     LoadingBar: users === null,
   };
 };
-export default withRouter(connect(mapStateToProps)(Navigation));
+export default connect(mapStateToProps)(Navigation);

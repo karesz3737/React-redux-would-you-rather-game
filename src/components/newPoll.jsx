@@ -49,9 +49,9 @@ class NewPoll extends Component {
     const { authedUser } = this.props;
     const { errorMsg } = this.state;
 
-    if (!authedUser) {
-      return <Redirect to="/page404" />;
-    }
+    // if (!authedUser) {
+    //   return <Redirect to="/page404" />;
+    // }
     return (
       <div className="ui container">
         <div className="ui segment" style={{ border: "none" }}>

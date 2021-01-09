@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import handleAddData from "../actions/shared";
 import { resetAuthUser } from "../actions/authUser";
 import Login from "../components/Login";
-import Home from "../components/containers/Home";
+import HomeQuestions from "../components/containers/Home";
 class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
@@ -23,7 +23,7 @@ class App extends Component {
         </div>
       );
     } else {
-      return <Fragment>{!isSignedIn ? <Login /> : <Home />}</Fragment>;
+      return <Fragment>{!isSignedIn ? <Login /> : <HomeQuestions />}</Fragment>;
     }
   }
 }

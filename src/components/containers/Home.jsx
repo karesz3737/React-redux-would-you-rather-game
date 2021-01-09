@@ -3,8 +3,8 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Navgation from "../Navigation";
 import Leaderboard from "../Leaderboard";
 import NewPoll from "../newPoll";
-import ShowCard from "../ShowCard";
 import HomeQuestions from "../HomeQuestions";
+import TabList from "../TabList";
 
 class Home extends Component {
   render() {
@@ -14,9 +14,9 @@ class Home extends Component {
           <Navgation />
           <Switch>
             <Route path="/" exact component={HomeQuestions} />
-            <Route path="/leaders" exact component={Leaderboard} />
-            <Route path="/newpoll" exact component={NewPoll} />
-            <Route path="/:id" exact component={ShowCard} />
+            <Route path="/leaderbord" exact component={Leaderboard} />
+            <Route path="/add" exact component={NewPoll} />
+            <Route path="/questions/:id" exact component={TabList} />
           </Switch>
         </BrowserRouter>
       </div>

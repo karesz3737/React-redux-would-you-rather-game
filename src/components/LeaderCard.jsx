@@ -9,7 +9,7 @@ class LeaderCard extends Component {
         <div className="image">
           <img
             src={leaders.avatarURL}
-            style={{ maxHeight: "250px" }}
+            style={{ height: "250px" }}
             alt={leaders.name}
           />
         </div>

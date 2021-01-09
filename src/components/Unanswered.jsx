@@ -1,24 +1,34 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { handleQuestionToQuestion } from "../actions/questions";
+import Page404 from "./Page404";
 class Unanswered extends Component {
   state = {
-    answer: "",
+    answer: null,
   };
   addState = (event) => {
-    const value = event.target.value;
-    this.setState({ answer: value });
+    return this.setState({ answer: event.target.value });
   };
   handleSubmit = (event) => {
     event.preventDefault();
-    const { dispatch, question } = this.props;
+    const { dispatch, question, history } = this.props;
     const { answer } = this.state;
     const qid = question.id;
-
+    history.push("/");
     dispatch(handleQuestionToQuestion(qid, answer));
   };
   render() {
-    const { textOptionOne, textOptionTwo, image, author } = this.props;
+    const {
+      textOptionOne,
+      textOptionTwo,
+      image,
+      author,
+      question,
+    } = this.props;
+    if (question === null) {
+      return <Page404 />;
+    }
 
     return (
       <div>
@@ -35,16 +45,17 @@ class Unanswered extends Component {
               <div className="radio">
                 <input
                   type="radio"
-                  name="name"
+                  name="nameradio"
                   value="optionOne"
                   onChange={this.addState}
                 />
+
                 <label style={{ padding: "5px" }}>{textOptionOne}</label>
               </div>
               <div className="radio">
                 <input
                   type="radio"
-                  name="name"
+                  name="nameradio"
                   value="optionTwo"
                   onChange={this.addState}
                 />
@@ -73,7 +84,7 @@ const mapStateToProps = ({ users, questions, authedUser }, { id }) => {
   const image = users[author].avatarURL;
 
   return {
-    question,
+    question: question ? question : null,
     textOptionOne,
     textOptionTwo,
     author,
@@ -81,4 +92,4 @@ const mapStateToProps = ({ users, questions, authedUser }, { id }) => {
     authedUser,
   };
 };
-export default connect(mapStateToProps)(Unanswered);
+export default withRouter(connect(mapStateToProps)(Unanswered));

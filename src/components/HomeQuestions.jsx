@@ -1,29 +1,37 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import Unanswered from "./Unanswered";
-import Answered from "./Answered";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+
+import AnsweredCard from "./AnsweredCard";
+import Unasweredcard from "./Unansweredcard";
 class HomeQuestions extends Component {
   render() {
     const { answeredQuestionIds, unansweredQuestionIds } = this.props;
 
     return (
-      <div className=" ui segment container">
-        <div className="gridI">
-          <div className="column">
-            <div className="ui header centered">Unaswered</div>
-            {unansweredQuestionIds.map((el) => (
-              <Unanswered id={el} key={el} />
-            ))}
-          </div>
-          <div className=" column">
-            <div className="ui header centered">Answered</div>
+      <div>
+        <Tabs className="bb">
+          <TabList
+            className="ui top attached tabular menu item"
+            style={{ padding: "10px", border: "none" }}
+          >
+            <Tab className="ui active fluid button">Unanswered</Tab>
+            <Tab className="ui fluid button">Answered</Tab>
+          </TabList>
 
-            {answeredQuestionIds.map((el) => (
-              <Answered id={el} key={el} />
+          <TabPanel>
+            {unansweredQuestionIds.map((el) => (
+              <Unasweredcard id={el} key={el} />
             ))}
-          </div>
-        </div>
+          </TabPanel>
+
+          <TabPanel>
+            {answeredQuestionIds.map((el) => (
+              <AnsweredCard id={el} key={el} />
+            ))}
+          </TabPanel>
+        </Tabs>
       </div>
     );
   }
@@ -45,6 +53,7 @@ const mapStateToProps = ({ questions, authedUser }) => {
           questions[question].optionTwo.votes.indexOf(authedUser) === -1
       )
       .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
+    authedUser,
   };
 };
 export default withRouter(connect(mapStateToProps)(HomeQuestions));

@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Udacity-react-nano-would-you-rather/static/css/main.cb039786.chunk.css",
-    "main.js": "/Udacity-react-nano-would-you-rather/static/js/main.f50bc088.chunk.js",
-    "main.js.map": "/Udacity-react-nano-would-you-rather/static/js/main.f50bc088.chunk.js.map",
-    "runtime-main.js": "/Udacity-react-nano-would-you-rather/static/js/runtime-main.dde0edd8.js",
-    "runtime-main.js.map": "/Udacity-react-nano-would-you-rather/static/js/runtime-main.dde0edd8.js.map",
-    "static/js/2.d934bf23.chunk.js": "/Udacity-react-nano-would-you-rather/static/js/2.d934bf23.chunk.js",
-    "static/js/2.d934bf23.chunk.js.map": "/Udacity-react-nano-would-you-rather/static/js/2.d934bf23.chunk.js.map",
-    "index.html": "/Udacity-react-nano-would-you-rather/index.html",
-    "static/css/main.cb039786.chunk.css.map": "/Udacity-react-nano-would-you-rather/static/css/main.cb039786.chunk.css.map",
-    "static/js/2.d934bf23.chunk.js.LICENSE.txt": "/Udacity-react-nano-would-you-rather/static/js/2.d934bf23.chunk.js.LICENSE.txt"
+    "main.css": "/React-redux-would-you-rather-game/static/css/main.cb039786.chunk.css",
+    "main.js": "/React-redux-would-you-rather-game/static/js/main.703bbb83.chunk.js",
+    "main.js.map": "/React-redux-would-you-rather-game/static/js/main.703bbb83.chunk.js.map",
+    "runtime-main.js": "/React-redux-would-you-rather-game/static/js/runtime-main.9d3bfb28.js",
+    "runtime-main.js.map": "/React-redux-would-you-rather-game/static/js/runtime-main.9d3bfb28.js.map",
+    "static/js/2.d934bf23.chunk.js": "/React-redux-would-you-rather-game/static/js/2.d934bf23.chunk.js",
+    "static/js/2.d934bf23.chunk.js.map": "/React-redux-would-you-rather-game/static/js/2.d934bf23.chunk.js.map",
+    "index.html": "/React-redux-would-you-rather-game/index.html",
+    "static/css/main.cb039786.chunk.css.map": "/React-redux-would-you-rather-game/static/css/main.cb039786.chunk.css.map",
+    "static/js/2.d934bf23.chunk.js.LICENSE.txt": "/React-redux-would-you-rather-game/static/js/2.d934bf23.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.dde0edd8.js",
+    "static/js/runtime-main.9d3bfb28.js",
     "static/js/2.d934bf23.chunk.js",
     "static/css/main.cb039786.chunk.css",
-    "static/js/main.f50bc088.chunk.js"
+    "static/js/main.703bbb83.chunk.js"
   ]
 }

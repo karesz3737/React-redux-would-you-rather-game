@@ -1,6 +1,6 @@
 {
   "name": "udacity-project-would-you-rather",
-  "homepage": "https://karesz3737.github.io/Udacity-react-nano-would-you-rather",
+  "homepage": "https://karesz3737.github.io/React-redux-would-you-rather-game",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

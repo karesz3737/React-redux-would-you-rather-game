@@ -34,9 +34,9 @@ User needs to sign in with the three existing profiles.
 After the user signs in the user id will be added to the Redux store as an authenticated user.
 If the user did not signed in and tries to add a new question, will be redirected to 404.page.
 ```
-
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) 
 [![login.png](https://i.postimg.cc/sfJYyqVL/login.png)](https://postimg.cc/HjVc9S80)
-![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) `#f03c15`
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) 
 
 [![second.png](https://i.postimg.cc/bYLt4ngc/second.png)](https://postimg.cc/JtD0kGSP)
 

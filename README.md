@@ -37,7 +37,9 @@ If the user did not signed in and tries to add a new question, will be redirecte
 
 [![login.png](https://i.postimg.cc/sfJYyqVL/login.png)](https://postimg.cc/HjVc9S80)
 
+[![second.png](https://i.postimg.cc/bYLt4ngc/second.png)](https://postimg.cc/JtD0kGSP)
 
+[![third.png](https://i.postimg.cc/4Nd9G32K/third.png)](https://postimg.cc/yWMdX7HB)
 
 
 # Leaderbord Page

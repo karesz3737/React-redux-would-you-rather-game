@@ -6,6 +6,8 @@
 To be able to start and run the project the user needs to have Node installed on her/his computer.
 If the user does have Node installed needs to run "npm install" to download all dependencies and node modules.
 After the successful installation the user can run "npm start" to run the CRA application.
+
+###  https://karolykertesz.github.io/React-redux-would-you-rather-game/
 ```
 # UI
 
@@ -31,6 +33,12 @@ User needs to sign in with the three existing profiles.
 After the user signs in the user id will be added to the Redux store as an authenticated user.
 If the user did not signed in and tries to add a new question, will be redirected to 404.page.
 ```
+
+
+
+
+
+
 # Leaderbord Page
 
 ```

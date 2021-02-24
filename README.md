@@ -10,7 +10,7 @@ After the successful installation the user can run "npm start" to run the CRA ap
 # UI
 
 ```
-For the most of design Semantic ui library was used as well as custom css design.
+For the most of the design Semantic ui library was used as well as custom css design.
 ```
 # Tech
 
